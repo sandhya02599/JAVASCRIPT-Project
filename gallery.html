@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ecf4fb;
+}
+
+.img-gallery {
+  width: 80%;
+  margin: 100px auto 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.img-gallery img {
+  width: 100%;
+  height: 250px; 
+  object-fit: cover; 
+  cursor: pointer;
+}
+
+.img-gallery img:hover {
+  transform: scale(0.8) rotate(-15deg);
+  border-radius: 20px;
+  box-shadow: 0 32px 7px rgba(68, 77, 136, 0.2);
+}
+
+.full-img {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.full-img img {
+  width: 90%;
+  max-width: 500px;
+}
+
+.full-img span {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="full-img" id="fullImgBox">
+    <img id="fullImg" src="images/city-1.jpeg">
+    <span onclick="closeFullImg()">X</span>
+  </div>
+
+  <div class="img-gallery">
+    <img src="images/city-1.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/city-2.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/city-3.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/city-4.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/city-5.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/nature-1.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/nature-2.jpeg" onclick="openFullImg(this.src)">
+    <img src="images/nature-3.jpeg" onclick="openFullImg(this.src)">
+  </div>
+
+  <script>
+    var fullImgBox = document.getElementById("fullImgBox");
+    var fullImg = document.getElementById("fullImg");
+
+    function openFullImg(pic) {
+      fullImgBox.style.display = "flex";
+      fullImg.src = pic;
+    }
+
+    function closeFullImg() {
+      fullImgBox.style.display = "none";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jokes</title>
+  <style>
+    *,
+    ::after,
+    ::before {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-100: hsl(21, 94%, 87%);
+      --primary-500: hsl(21, 62%, 45%);
+      --primary-700: hsl(21, 81%, 29%);
+      --grey-50: #f8fafc;
+      --grey-900: #0f172a;
+      --white: #fff;
+      --borderRadius: 0.25rem;
+      --letterSpacing: 1px;
+      --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.1);
+      --shadow-3: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --transition: 0.3s ease-in-out all;
+    }
+
+    body {
+      background: var(--grey-50);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--grey-900);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .container {
+      width: 90vw;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-top: 5rem;
+      text-align: center;
+    }
+
+    .result {
+      font-size: 1.5rem;
+      margin: 1.5rem 0;
+      background-color: var(--primary-100);
+      padding: 1rem;
+      border-radius: var(--borderRadius);
+      box-shadow: var(--shadow-1);
+    }
+
+    .btn {
+      cursor: pointer;
+      color: var(--white);
+      background: var(--primary-500);
+      border: none;
+      border-radius: var(--borderRadius);
+      letter-spacing: var(--letterSpacing);
+      padding: 0.375rem 0.75rem;
+      box-shadow: var(--shadow-1);
+      transition: var(--transition);
+      text-transform: capitalize;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background: var(--primary-700);
+      box-shadow: var(--shadow-3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Want to Hear a Joke?</h1>
+    <button class="btn" id="jokeBtn">Get a Joke</button>
+    <div class="result" id="jokeDisplay">Your joke will appear here...</div>
+  </div>
+
+  <script>
+    
+    const jokes = [
+      "Why don't scientists trust atoms? Because they make up everything!",
+      "Why did the scarecrow win an award? Because he was outstanding in his field!",
+      "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+      "Why don't skeletons fight each other? They don't have the guts.",
+      "I'm reading a book on anti-gravity. It's impossible to put down!",
+      "Parallel lines have so much in common. It's a shame they'll never meet."
+    ];
+
+    const jokeBtn = document.getElementById('jokeBtn');
+    const jokeDisplay = document.getElementById('jokeDisplay');
+
+    
+    function getRandomJoke() {
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      jokeDisplay.textContent = jokes[randomIndex];
+    }
+
+  
+    jokeBtn.addEventListener('click', getRandomJoke);
+  </script>
+</body>
+</html>
